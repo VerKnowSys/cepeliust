@@ -31,8 +31,8 @@ int main() {
     /* mut */ int of = 10;
     /* mut */ FactorialAndSum values; /* unknown/ invalid state */
 
-    /* mut */ values = factorial_and_sumall(of); /* initialization of structure object */
-    /* single call */ printf("C++: %d! = %d, sumall = %d\n", of, values.factorial, values.sumall);
+    /* mut, single call */ values = factorial_and_sumall(of); /* initialization of structure object */
+    /* reading values */ printf("C++: %d! = %d, sumall = %d\n", of, values.factorial, values.sumall);
 
     /* when we wish only to count factorial or only sumall of any other value - we're basically screwed here, cause we have to rewrite the implementation or call whole thing again */
 

@@ -25,7 +25,9 @@ mod operations {
 fn main() {
     use operations::*;
 
+    // let of = 0;
     let of = 10;
+
     /* 1st call */ println!("Rust: {}! = {}, sumall = {}", of, factorial(of), sumall(of));
     /* Nth call */ println!("Rust: 0! = {}, sumall = {}", factorial(0), sumall(0));
 }
