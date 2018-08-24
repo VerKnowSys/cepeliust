@@ -12,7 +12,7 @@ fn second_part(process_value: u64) -> Result<u64, String> {
     match process_value {
         3 => Ok(process_value + 13),
         value if value % 2 == 0 => Ok(value + 5),
-        _ => Err("Nie no nie bardzo".to_string()),
+        _ => Err("Oh so fatal ERROR!".to_string()),
     }
 }
 
