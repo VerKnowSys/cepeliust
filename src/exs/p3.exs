@@ -106,12 +106,25 @@ defmodule Main do
     %None{} = Some.unwrap(Some.v())
     12_345 = Some.unwrap(Some.v(12_345))
 
-    value_wrong = [even: "now"]
+    value_wrong = [even: "now"] # a Keyword type
     1 = value_wrong |> Some.unwrap_or_else(1)
-    3 = {:anything, :else} |> Some.unwrap_or_else(3)
+    3 = {:anything, :else} |> Some.unwrap_or_else(3) # {:anything, :else} - tuple of "atoms"
     {:anything, :else} = Some.v({:anything, :else}) |> Some.unwrap_or_else(3)
     [some: "more", time: "for"] = value |> Some.unwrap()
     [some: "more", time: "for"] = value |> (Some.unwrap_or_else :NOWAI)
+
+    # few words about atoms and control flow in Elixir
+    atoms = [:an_atom, :more_atomz, :dadada]
+
+    # convert list of atoms to strings and join by comma, all at once:
+    joined = atoms
+              |> Enum.map(fn atom -> Atom.to_string(atom) end)
+              |> Enum.join(", ")
+
+    # equivalent step by step:
+    joined_p1 = Enum.map(atoms, fn atom -> Atom.to_string(atom) end)
+    joined_p2 = Enum.join(joined_p1, ", ")
+    IO.puts "Joined: #{joined}\nBoth exactly the same? #{joined == joined_p2}"
 
     IO.puts "All matches passed as expected"
   end
