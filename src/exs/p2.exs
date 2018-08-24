@@ -8,7 +8,18 @@ end
 
 defmodule Main do
 
+  # This is Elixir specific method overloading using pattern match (yes, it's lovely)
+  def add_string("", ""), do: "Nothing!"
+  def add_string(a, b) when is_binary(a) and is_binary(b), do: a <> " " <> b <> "\n"
+  def add_string(a, b) when is_number(a) and is_number(b) do
+    "#{a} + #{b} = #{ a+b }"
+  end
+
+
   def main do
+    IO.puts add_string("", "")
+    IO.puts add_string(1, 2)
+    IO.puts add_string("ale", "fajnie")
 
     some_value = 10
     10 = some_value # it's valid since "=" is not "assign" but "pattern match"
@@ -71,7 +82,7 @@ defmodule Main do
     case structure do
       %Structure{index: index, value: value} -> IO.puts "Got structure with index: #{index} and value: #{value}"
       struct when is_map(map) -> IO.puts "map is a map, and structure is: #{inspect struct}" # is also valid but first match is ok so this will never be invoked
-      any -> IO.puts "No match"
+      _any -> IO.puts "No match"
     end
 
     case structure do
