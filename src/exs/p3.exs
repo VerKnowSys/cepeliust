@@ -1,6 +1,7 @@
 # Taken from Yst project written by me last year
 
-# Elixir lacks monadic processing, but we can implement our own:
+# Elixir lacks monadic processing in std lib,
+# but we can implement our own not-very-useful Option monad:
 
 
 defmodule None do
@@ -81,6 +82,8 @@ defmodule Some do
 
   for type <- types do
 
+    # NOTE: This code runs immediately compile time! It's kinda like "a safe feature injection" mechanism!
+
     # This is a macro that defines functions for each type from "types" (let's not dig too deep into macros for now)
     def typeof(x) when unquote(:"is_#{type}")(x), do: unquote(type)
 
@@ -113,12 +116,11 @@ defmodule Main do
     [some: "more", time: "for"] = value |> Some.unwrap()
     [some: "more", time: "for"] = value |> (Some.unwrap_or_else :NOWAI)
 
-    # few words about atoms and control flow in Elixir
-    atoms = [:an_atom, :more_atomz, :dadada]
+    atoms = [:an_atom, :more_atomz, :dadada] # list of atoms. As simple as that
 
-    # convert list of atoms to strings and join by comma, all at once:
+    # eagerly convert list of atoms to strings and join by comma:
     joined = atoms
-              |> Enum.map(fn atom -> Atom.to_string(atom) end)
+              |> Enum.map(fn atom -> Atom.to_string(atom) end) # eagerly map each element (atom here) and convert it to String
               |> Enum.join(", ")
 
     # equivalent step by step:

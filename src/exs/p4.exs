@@ -39,15 +39,15 @@ defmodule Main do
 
     # more lazy evaluation:
     result = [1,2,3,4,5,6,7,8,9]
-      |> Stream.drop(2)
-      |> Stream.take(5)
-      |> Stream.filter(fn element -> rem(element, 2) == 1 end) # let's assume it's some heavy processing
-      |> Stream.map(fn element -> element * 2 end) # + even more heavy processing
-    IO.puts inspect result # lazy, hence it's #Stream<…> - no invocation at all, so no processing at all!
+      |> Stream.drop(2) # skip first 2 values,
+      |> Stream.take(5) # take 5 next values,
+      |> Stream.filter(fn element -> rem(element, 2) == 1 end) # filter odd values
+      |> Stream.map(fn element -> element * 2 end) # let's pretend this map is some "heavy processing"…
+    IO.puts inspect result # still lazy, hence it's #Stream<…> - no invocation at all, so no processing at all!
 
-    other_required_state = true # simulate situation when something doesn't have to be processed at all if other conditions aren't satisfied - this way you can simply discard whole lazy processing.. and gain significant performance boost of your software
+    other_required_state = true # simulate situation when something doesn't have to be processed at all if other conditions aren't satisfied - this way you can simply discard whole lazy processing.. which can significantly improve performance
     if other_required_state do
-      eager_result = result |> Enum.to_list() # Enum.to_list() evaluates eagerly, then
+      eager_result = result |> Enum.to_list() # Enum.to_list() evaluates eagerly, (any Enum operation does) then
       IO.puts inspect eager_result # print expected values: [6, 10, 14]
     end
   end
