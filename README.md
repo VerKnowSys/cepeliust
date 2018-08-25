@@ -20,6 +20,7 @@ Daniel (dmilith) Dettlaff
 
 * bat `cargo install bat`
 * make
+* cmake
 
 
 ## Points description:
