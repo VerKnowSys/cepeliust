@@ -19,12 +19,16 @@ build_p3:
 build_p4:
 	rustc -o bin/p4 src/rs/p4.rs
 
+build_p5:
+	rustc -o bin/p5 src/rs/p5.rs
+
 build_all:
 	mkdir bin
 	make -s build_p1
 	make -s build_p2
 	make -s build_p3
 	make -s build_p4
+	make -s build_p5
 
 
 run_all:
@@ -68,6 +72,15 @@ run_all:
 		bin/p4
 
 	echo
+	read -s _tmp
+	clear
+
+	printf "\n\n\n%s\n--------------------\n\n" "Elixir Point 5:"
+		elixirc -o bin/p5_ex src/exs/p5.exs
+	printf "\n\n\n%s\n--------------------\n\n" "Rust Point 5:"
+		bin/p5
+
+	echo; echo; echo
 	echo "That's all folks!"
 	read -s _tmp
 
@@ -92,6 +105,9 @@ list:
 	make -s list_p4_exs
 	make -s list_p4_rs
 
+	make -s list_p5_exs
+	make -s list_p5_rs
+
 
 list_p1_cpp:
 	bat src/cpp/p1a.cpp src/cpp/p1b.cpp
@@ -115,3 +131,7 @@ list_p4_exs:
 list_p4_rs:
 	bat src/rs/p4.rs
 
+list_p5_exs:
+	bat src/exs/p5.exs
+list_p5_rs:
+	bat src/rs/p5.rs
