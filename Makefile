@@ -43,7 +43,7 @@ run_all:
 		bin/p1
 
 	echo
-	read -s _tmp
+	read _tmp
 	clear
 
 	printf "\n\n\n%s\n--------------------\n\n" "Elixir Point 2:"
@@ -52,7 +52,7 @@ run_all:
 		bin/p2
 
 	echo
-	read -s _tmp
+	read _tmp
 	clear
 
 	printf "\n\n\n%s\n--------------------\n\n" "Elixir Point 3:"
@@ -63,7 +63,7 @@ run_all:
 		bin/p3b
 
 	echo
-	read -s _tmp
+	read _tmp
 	clear
 
 	printf "\n\n\n%s\n--------------------\n\n" "Elixir Point 4:"
@@ -72,7 +72,7 @@ run_all:
 		bin/p4
 
 	echo
-	read -s _tmp
+	read _tmp
 	clear
 
 	printf "\n\n\n%s\n--------------------\n\n" "Elixir Point 5:"
@@ -82,7 +82,7 @@ run_all:
 
 	echo; echo; echo
 	echo "That's all folks!"
-	read -s _tmp
+	read _tmp
 
 run:
 	make -s run_all
