@@ -4,7 +4,7 @@ macro_rules! struct_ext {
     ($name:ident { $( $field:ident: $ty:ty ),* $(,)* }) => {
 
 
-        #[derive(Debug, Clone)]
+        #[derive(Debug, Clone, Default)]
         pub struct $name {
 
             /// inject name!
@@ -27,15 +27,15 @@ macro_rules! struct_ext {
         }
 
 
-        impl Default for $name {
-            fn default() -> Self {
-                Self {
-                    name: "NoName".to_string(),
-                    other_value: Some("shiny default value".to_string()),
-                    my_shiny_field: None,
-                }
-            }
-        }
+        // we can inject our own Default definition as well:
+        // impl Default for $name {
+        //     fn default() -> Self {
+        //         Self {
+        //             name: "NoName".to_string(),
+        //             .. Self::default()
+        //         }
+        //     }
+        // }
     }
 }
 
