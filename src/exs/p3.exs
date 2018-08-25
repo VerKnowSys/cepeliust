@@ -89,13 +89,16 @@ defmodule Some do
 
   end
 
+  IO.puts("___ Compile Time Message ___")
+
 end
 
 
 defmodule Main do
 
   def main do
-    # Kinda hacky and magic, and not much gain here to be honest - but it's possible:
+    # Kinda hacky and magic, and not much gain here to be honest,
+    # except the fact that we're not using 'nil' at all here
 
     value = Some.v Keyword.new [some: "more", time: "for"]
     %Some{v: [some: "more", time: "for"], vtype: "list"} = value

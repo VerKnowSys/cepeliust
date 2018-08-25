@@ -48,7 +48,7 @@ Daniel (dmilith) Dettlaff
 
 ### Point 5:
     * Quotting, unquotting - macros in action. Code that writes code. Metaprogramming.
-    * Data driven development, human level of the code logic abstraction. (example Yst?)
+    * Data driven development, Default values, human level of the code logic abstraction. (Elixir example Yst?)
 
 
 
