@@ -10,8 +10,8 @@ Daniel (dmilith) Dettlaff
 
 ### Requirements:
 
-* Darwin 15.6.0+
-* Clang 8.0+
+* Darwin 15.6.0+ or other NIX system or Linux
+* Clang 6.0+
 * Elixir 1.6+
 * Rust 1.28+
 
@@ -19,8 +19,8 @@ Daniel (dmilith) Dettlaff
 ### Additional requirements:
 
 * bat `cargo install bat`
-* make
-* cmake
+* make 4.x+
+* cmake 3.x+
 
 
 ## Points description:
