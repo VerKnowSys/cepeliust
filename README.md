@@ -13,7 +13,7 @@ Daniel (dmilith) Dettlaff
 * Darwin 15.6.0+ or other NIX system or Linux
 * Clang 6.0+
 * Elixir 1.6+
-* Rust 1.28+
+* Rust 1.28+ (https://rustup.rs/)
 
 
 ### Additional requirements:
