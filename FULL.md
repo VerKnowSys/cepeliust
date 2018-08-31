@@ -20,6 +20,7 @@
   * Data structures and data types - Ideas of cheap abstractions that allow work on "human friendly abstraction and data level"
   * Recurssion and Tail recurssion - No loops. Passing "state" as function argument
   * Syntax sugar - Bitter lies, sweet lies!
+  * Following the "code hygiene" principles - You _can_ write _bad_ code in _any_ language :)
 
 
 2. Eager vs Lazy
