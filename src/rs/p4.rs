@@ -3,9 +3,12 @@ fn main() {
     // anonymous functions:
     let fun3 = |argument| argument + 1;
     let anon_fun_in_fun = || fun3(1) + 1;
-    let _other_example_lambda = |arg: i32, arg2: String| { println!("Tadam: {}, {}", arg, arg2); };
+    let other_example_lambda = |arg: i32, arg2: String| { // function with arguments, of explicit types,
+        println!("Tadam: {}, {}", arg, arg2); //              that returns ()/ Unit
+    };
 
     println!("fun3: {}", fun3(665)); // eager invocation
+    println!("other_example_lambda: {:?}", other_example_lambda(123, "Param".to_string()));
     let closure = anon_fun_in_fun; // cause you can bind closure (anonymous function) to normal value- it's lazy closure
     println!("anon_fun_in_fun: {:?}", closure()); // lazy closure invocated, and evaluated to value: 3
 
