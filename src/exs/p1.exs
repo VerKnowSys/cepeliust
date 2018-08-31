@@ -21,24 +21,30 @@ defmodule Operations do
     end
   end
 
+
 end
 
 
 defmodule Main do
+
 
   def main do
     import Operations
 
     # of = 9
     of = 10
+    sum_of = sumall of
+    factorial_of = factorial of
 
     # 1st call:
-    IO.puts "Elixir: #{ of }! = #{ factorial(of) }, sumall = #{ sumall(of) }"
+    IO.puts "Elixir: #{ of }! = #{ factorial_of }, sumall = #{ sum_of }"
 
     # Nth call:
     IO.puts "Elixir: 0! = #{ factorial(0) }, sumall = #{ sumall(0) }"
   end
 
+
 end
+
 
 Main.main()

@@ -1,23 +1,26 @@
 defmodule Functionz do
 
+
   # Only Elixir allows definition of pattern matched functions like these:
   # NOTE: order of defintion matters! (cause order of pattern matching)
   def fun1 "abc" do
     "abc"
   end
 
+
   def fun1 other do
     other
   end
+
 
 end
 
 
 defmodule Main do
-  import Functionz
 
 
   def main do
+    import Functionz
 
     # "regular" functions:
     # NOTE: operator notation:
@@ -51,6 +54,7 @@ defmodule Main do
       IO.puts inspect eager_result # then print expected values: [6, 10, 14]
     end
   end
+
 
 end
 

@@ -12,9 +12,12 @@ defmodule None do
 
   defstruct [:v, :vtype]
 
+
   def v do
     %None{}
   end
+
+
 end
 
 
@@ -28,6 +31,7 @@ defmodule Some do
 
   @enforce_keys [:v, :vtype]
   defstruct [:v, :vtype]
+
 
   # This example also shows pattern matching
   @spec v :: (Some.t | None.t)
@@ -91,10 +95,12 @@ defmodule Some do
 
   IO.puts("___ Compile Time Message ___")
 
+
 end
 
 
 defmodule Main do
+
 
   def main do
     # Kinda hacky and magic, and not much gain here to be honest,
@@ -134,6 +140,8 @@ defmodule Main do
     IO.puts "All matches passed as expected"
   end
 
+
 end
+
 
 Main.main()
