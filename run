@@ -15,15 +15,29 @@ require () {
 }
 
 
-require \
-    rustc \
-    elixirc \
-    clang \
-    bat \
-    make
+main () {
+    require \
+        rustc \
+        elixirc \
+        clang \
+        bat \
+        make
+
+    {
+        make -s clean \
+            || failure "ACCESS FAILURE" "CLEAN"
+
+    } && {
+        make \
+            || failure "CODE FAILURE" "BUILD"
+
+    } && {
+        make -s run_all \
+            || failure "CODE FAILURE" "RUNTIME PANIC"
+
+    } && \
+        return 0
+}
 
 
-make -s clean
-make \
-    && make -s run_all \
-    || failure "BUILD FAILURE" ""
+main # build and run!
