@@ -1,8 +1,8 @@
 fn main() {
 
-    // anonymous functions:
-    let fun3 = |argument| argument + 1;
-    let anon_fun_in_fun = || fun3(1) + 1;
+    // anonymous functions/ lambdas/ closures:
+    let fun3 = |argument| argument + 1; // takes single argument that implements "Add" for given type :)
+    let anon_fun_in_fun = || fun3(1) + 1; // takes no arguments and results with number type
     let other_example_lambda = |arg: i32, arg2: String| { // function with arguments, of explicit types,
         println!("Tadam: {}, {}", arg, arg2); //              that returns ()/ Unit
     };

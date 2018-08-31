@@ -47,8 +47,8 @@ defmodule Main do
 
     other_required_state = true # simulate situation when something doesn't have to be processed at all if other conditions aren't satisfied - this way you can simply discard whole lazy processing.. which can significantly improve performance
     if other_required_state do
-      eager_result = result |> Enum.to_list() # Enum.to_list() evaluates eagerly, (any Enum operation does) then
-      IO.puts inspect eager_result # print expected values: [6, 10, 14]
+      eager_result = result |> Enum.to_list() # Enum.to_list() evaluates eagerly
+      IO.puts inspect eager_result # then print expected values: [6, 10, 14]
     end
   end
 
