@@ -43,6 +43,7 @@ run_all:
 		bin/p1
 
 	echo
+	printf "\n\n%s\n" "[press Enter to continue]"
 	read _tmp
 	clear
 
@@ -52,6 +53,7 @@ run_all:
 		bin/p2
 
 	echo
+	printf "\n\n%s\n" "[press Enter to continue]"
 	read _tmp
 	clear
 
@@ -63,6 +65,7 @@ run_all:
 		bin/p3b
 
 	echo
+	printf "\n\n%s\n" "[press Enter to continue]"
 	read _tmp
 	clear
 
@@ -72,6 +75,7 @@ run_all:
 		bin/p4
 
 	echo
+	printf "\n\n%s\n" "[press Enter to continue]"
 	read _tmp
 	clear
 
@@ -82,6 +86,7 @@ run_all:
 
 	echo; echo; echo
 	echo "That's all folks!"
+	printf "\n\n%s\n" "[press Enter to continue]"
 	read _tmp
 
 run:
