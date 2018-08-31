@@ -5,11 +5,53 @@ struct Structure {
 }
 
 
+// Implementation of Structure
+impl Structure {
+
+    // Function that prints magic value!
+    pub fn new() -> Structure {
+        Structure {
+            index: 100,
+            value: "default-value".to_string()
+        }
+    }
+
+
+    // Function that prints magic value!
+    pub fn magic_value() -> usize {
+        11
+    }
+
+
+    // Return some structure magic
+    pub fn structure_magic(&self) -> usize {
+        (100 + self.index) as usize
+    }
+
+
+    // Simply just return new structure with index incremented :)
+    fn increment_index(&self) -> Structure {
+        Structure {
+            index: self.index + 1,
+            value: self.value.clone()
+        }
+    }
+
+}
+
+
 fn main() {
     // let some_value = 10;
     // 10 = some_value; // it's invalid since "=" is not "pattern match" in Rust
 
-    let magic_value = 11;
+    let magic_value = Structure::magic_value();
+    let structure_object = Structure::new();
+    let magic = structure_object.structure_magic();
+    println!("Magic value is: {}", magic);
+    println!("Magic value with incremented index is: {}",
+             structure_object
+                .increment_index()
+                .structure_magic());
 
     // handling pattern match (elegant way):
     match magic_value {
