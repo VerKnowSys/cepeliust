@@ -21,6 +21,7 @@
   * Recurssion and Tail recurssion - No loops. Passing "state" as function argument
   * Syntax sugar - Bitter lies, sweet lies!
   * Following the "code hygiene" principles - You _can_ write _bad_ code in _any_ language :)
+  * Functional programming seems to be more about "the way of the thinking", hence you can write "functional" code in majority of imperative languages. Unfortunatelly FP operations are often much more costly (also cause significant cost of functional-level abstraction in languages like C++ STL, PHP, Ruby, Python, …). and often very limited runtimes (f.e. deep recurssion using stack, or case of tail recurssion - which support for was announced by LLVM team, to be implemented before 2019). Yet in most cases you can just write a "functional shell script" like: `./run` script in root dir of this repository.
 
 
 2. Eager vs Lazy
