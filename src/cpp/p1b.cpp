@@ -3,7 +3,7 @@
 
 namespace Operations {
 
-    /* Sums all numbers in range */
+    /* Sums all numbers in range v1 - imperatively */
     int sumall(int of) {
         /* mut */ int sumall = 0;
 
@@ -15,7 +15,16 @@ namespace Operations {
     }
 
 
-    /* Counts factorial of given number */
+    /* Sums all numbers in range v2 - recursively */
+    int sumall_v2(int of) {
+        if (of > 0)
+            return of + sumall(of - 1);
+        else
+            return 0;
+    }
+
+
+    /* Counts factorial of given number v1 - imperatively */
     int factorial(int of) {
         /* mut */ int factorial = 1;
 
@@ -26,6 +35,16 @@ namespace Operations {
         return factorial;
     }
 
+
+    /* Counts factorial of given number v2 - recursively */
+    int factorial_v2(int of) {
+        if (of > 1)
+            return of * factorial(of - 1);
+        else
+            return 1;
+    }
+
+
 }
 
 
@@ -34,8 +53,9 @@ int main() {
 
     /* mut */ int of = 10;
 
-    /* 1st call */ printf("C++: %d! = %d, sumall = %d\n", of, factorial(of), sumall(of));
-    /* Nth calls */ printf("C++: 0! = %d, sumall: %d\n", factorial(0), sumall(0));
+    /* 1st call */ printf("Imperatively: %d! = %d, sumall = %d\n", of, factorial(of), sumall(of));
+    /* 2nd call */ printf("Recursively: %d! = %d, sumall = %d\n", of, factorial_v2(of), sumall_v2(of));
+    /* Nth calls */ printf("From 0: 0! = %d, sumall: %d\n", factorial(0), sumall(0));
 
     return 0;
 }
