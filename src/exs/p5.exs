@@ -81,15 +81,13 @@ defmodule Main do
     # Let's go deeper with Elixir quote/ unquote mechanism!
     IO.puts "\n\nQuote me anytime where you need me!"
 
-    # Elixir code quoting feature (which is part of Elixir macros system)
+    # Elixir code quoting feature (which is core part of Elixir macros system)
     quoted_code_block = quote do
       post_function = fn ->
-        IO.puts "I'm invoked right after quoted code block!"
+        IO.puts "Runtime: quoted_code_block().post_function(). Finished!"
       end
-
-      IO.puts "Inner invoke hello(): " <> unquote(hello()) <>
-              "Inner invoke hello(999): " <> unquote(hello(999))
-
+      IO.puts "Runtime: Inner invoke hello(): " <> unquote(hello()) <>
+              "Runtime: Inner invoke hello(999): " <> unquote(hello(999))
       post_function.()
     end
 
@@ -163,20 +161,21 @@ defmodule Main do
 
     # now, the invoke_inner_function is function that should return :happy_atom
     evaluated = invoke_inner_function |> Macro.to_string() |> Code.eval_string()
-    IO.puts "\nCODE BLOCK EVALUATED: #{inspect evaluated}"
+    IO.puts "\nCODE BLOCK EVALUATED: #{inspect evaluated}\n\n"
 
     lazy_function = fn ->
       quote do
         # NOTE: since macros are invoked _before_ the compilation stage,
         #       with quote/unquote, we can inject code into AST,
         #       before project gets compiled! This is how macros work in Elixir
-        IO.puts "Before code block eval!"
+        IO.puts "Runtime: Before code block eval!"
         stringified_block |> Code.eval_string()
-        IO.puts "After code block eval!"
+        IO.puts "Runtime: After code block eval!"
       end
     end
 
     function_as_value = quote do
+      IO.puts "Runtime: function_as_value()"
       unquote(lazy_function.()) # it has to be unquotted since we need to
                                 # inject lazy_function before project compile time
     end
