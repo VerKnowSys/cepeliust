@@ -1,0 +1,29 @@
+#!/bin/sh
+
+
+failure () {
+    printf "%s: '%s'\nPlease install it rerun '%s'\n" "${1}" "${*}" "${0}"
+    exit 1
+}
+
+
+require () {
+    for arg in ${*}; do
+        which "${arg}" >/dev/null 2>&1 \
+            || failure "REQUIREMENT NOT FOUND" "${arg}"
+    done
+}
+
+
+require \
+    rustc \
+    elixirc \
+    clang \
+    bat \
+    make
+
+
+make -s clean
+make \
+    && make -s run_all \
+    || failure "BUILD FAILURE" ""
